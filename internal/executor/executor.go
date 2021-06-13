@@ -223,11 +223,11 @@ func Execute(w io.Writer, ses *config.Session, commands ...string) error {
 		}
 
 		if err != nil {
-			return fmt.Errorf("execute: %w", err)
+			fmt.Errorf("execute: %w", err)
 		}
 
 		if err := logger.Write(ses.Log, ses.Address, command, result); err != nil {
-			return fmt.Errorf("log: %w", err)
+			fmt.Errorf("log: %w", err)
 		}
 
 		if i+1 != len(commands) {
